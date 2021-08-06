@@ -82,13 +82,33 @@ public class ParkingLotTest {
     void should_return_nothing_when_park_the_car_given_parking_lot_without_any_position_and_a_car(){
         //given
         ParkingLot parkingLot = new ParkingLot();
-        Car car = new Car();
+        Car car1 = new Car();
+        Car car2 = new Car();
+        Car car3 = new Car();
+        Car car4 = new Car();
+        Car car5 = new Car();
+        Car car6 = new Car();
+        Car car7 = new Car();
+        Car car8 = new Car();
+        Car car9 = new Car();
+        Car car10 = new Car();
+        Car car11 = new Car();
+        ParkingTicket parkingTicket1 =  parkingLot.park(car1);
+        ParkingTicket parkingTicket2 =  parkingLot.park(car2);
+        ParkingTicket parkingTicket3 =  parkingLot.park(car3);
+        ParkingTicket parkingTicket4 =  parkingLot.park(car4);
+        ParkingTicket parkingTicket5 =  parkingLot.park(car5);
+        ParkingTicket parkingTicket6 =  parkingLot.park(car6);
+        ParkingTicket parkingTicket7 =  parkingLot.park(car7);
+        ParkingTicket parkingTicket8 =  parkingLot.park(car8);
+        ParkingTicket parkingTicket9 =  parkingLot.park(car9);
+        ParkingTicket parkingTicket10 =  parkingLot.park(car10);
 
         //when
-        ParkingTicket parkingTicket =  parkingLot.park(car);
+        ParkingTicket parkingTicket11 =  parkingLot.park(car11);
 
         //then
-        assertNull(parkingTicket);
+        assertNull(parkingTicket11);
 
     }
 }
