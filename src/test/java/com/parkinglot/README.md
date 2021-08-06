@@ -20,3 +20,10 @@ Then return the right car.
 Given a parking lot, and wrong parking ticket
 When fetch the car
 Then return nothing
+
+[x] Case 5
+Given a wrong parking ticket
+When fetch the car
+Then return nothing
+
+[x] Case 6
