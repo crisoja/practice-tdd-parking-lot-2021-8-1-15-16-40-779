@@ -57,7 +57,6 @@ public class ParkingLotTest {
         //given
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
-        ParkingTicket parkingTicket = parkingLot.park(car);
 
         //when
         Car carWithWrongTicket = parkingLot.fetch(new ParkingTicket());
@@ -65,4 +64,6 @@ public class ParkingLotTest {
         //then
         assertNull(carWithWrongTicket);
     }
+
+
 }
