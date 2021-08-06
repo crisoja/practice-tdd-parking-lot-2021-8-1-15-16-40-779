@@ -15,3 +15,8 @@ Then return the parked car
 Given a parking lot with two parked_cars_and_two parking_tickets
 When fetch the car twice
 Then return the right car.
+
+[x] Case 4
+Given a parking lot, and wrong parking ticket
+When fetch the car
+Then return nothing
