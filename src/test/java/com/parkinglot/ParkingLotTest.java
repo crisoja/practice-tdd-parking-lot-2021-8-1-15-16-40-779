@@ -82,35 +82,40 @@ public class ParkingLotTest {
     void should_return_nothing_when_park_the_car_given_parking_lot_without_any_position_and_a_car(){
         //given
         ParkingLot parkingLot = new ParkingLot();
-        Car car1 = new Car();
-        Car car2 = new Car();
-        Car car3 = new Car();
-        Car car4 = new Car();
-        Car car5 = new Car();
-        Car car6 = new Car();
-        Car car7 = new Car();
-        Car car8 = new Car();
-        Car car9 = new Car();
-        Car car10 = new Car();
-        Car car11 = new Car();
-        ParkingTicket parkingTicket1 =  parkingLot.park(car1);
-        ParkingTicket parkingTicket2 =  parkingLot.park(car2);
-        ParkingTicket parkingTicket3 =  parkingLot.park(car3);
-        ParkingTicket parkingTicket4 =  parkingLot.park(car4);
-        ParkingTicket parkingTicket5 =  parkingLot.park(car5);
-        ParkingTicket parkingTicket6 =  parkingLot.park(car6);
-        ParkingTicket parkingTicket7 =  parkingLot.park(car7);
-        ParkingTicket parkingTicket8 =  parkingLot.park(car8);
-        ParkingTicket parkingTicket9 =  parkingLot.park(car9);
-        ParkingTicket parkingTicket10 =  parkingLot.park(car10);
+
+        Car car = new Car();
+        for (int i = 0; i< 10; i++){
+            ParkingTicket parkingTicket = parkingLot.park(car);
+        }
 
         //when
-        ParkingTicket parkingTicket11 =  parkingLot.park(car11);
+        Car car11 = new Car();
+        ParkingTicket parkingTicket11 =  parkingLot.park(car);
 
         //then
         assertNull(parkingTicket11);
 
     }
+
+    @Test
+    void should_return_nothing_and_error_message_Unrecognized_parking_ticket_when_fetch_the_car_given_a_wrong_parking_ticket(){
+        Exception exception = assertThrows(Exception.class, () ->{
+            //given
+            ParkingLot parkingLot = new ParkingLot();
+            Car car = new Car();
+            ParkingTicket parkingTicket = parkingLot.park(car);
+
+            //when
+            Car nextCar = parkingLot.fetch(new ParkingTicket());
+
+            //then
+            assertNull(nextCar);
+        });
+
+        assertTrue(exception.getMessage().contains("Unrecognized parking ticket"));
+    }
+
+
 }
 
 
