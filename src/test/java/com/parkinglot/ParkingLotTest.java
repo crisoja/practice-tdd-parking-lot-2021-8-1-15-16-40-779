@@ -77,4 +77,20 @@ public class ParkingLotTest {
         //then
         assertNull(usedParkingTicket);
     }
+
+    @Test
+    void should_return_nothing_when_park_the_car_given_parking_lot_without_any_position_and_a_car(){
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car();
+
+        //when
+        ParkingTicket parkingTicket =  parkingLot.park(car);
+
+        //then
+        assertNull(parkingTicket);
+
+    }
 }
+
+
