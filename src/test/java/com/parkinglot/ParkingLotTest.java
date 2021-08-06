@@ -74,9 +74,9 @@ public class ParkingLotTest {
         ParkingTicket parkingTicket = parkingLot.park(car);
 
         //when
-        parkingLot.fetch(parkingTicket);
+        Car usedParkingTicket = parkingLot.fetch(parkingTicket);
 
         //then
-        assertNull(car);
+        assertNull(usedParkingTicket);
     }
 }
