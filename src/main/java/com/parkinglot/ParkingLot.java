@@ -23,14 +23,16 @@ public class ParkingLot {
         return ticketCount;
     }
 
-    public Car fetch(ParkingTicket parkingTicket){
+    public Car fetch(ParkingTicket parkingTicket)throws Exception{
 
-        if(parkedPosition.containsKey(parkingTicket)){
+            if(!parkedPosition.containsKey(parkingTicket)){
+               throw new UnrecognizedParkingTicketException();
+            }
+
+
             parkedCar =  parkedPosition.get(parkingTicket);
             parkedPosition.remove(parkingTicket, car);
-            car = parkedCar;
-        }
-        return car;
+            return parkedCar;
     }
 }
 
