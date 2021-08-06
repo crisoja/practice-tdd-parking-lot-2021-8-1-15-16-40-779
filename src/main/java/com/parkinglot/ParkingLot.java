@@ -29,7 +29,6 @@ public class ParkingLot {
                throw new UnrecognizedParkingTicketException();
             }
 
-
             parkedCar =  parkedPosition.get(parkingTicket);
             parkedPosition.remove(parkingTicket, car);
             return parkedCar;

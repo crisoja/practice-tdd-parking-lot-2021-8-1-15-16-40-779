@@ -53,18 +53,18 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_nothing_when_park_the_car_given_parking_lot_without_any_position_and_a_car(){
+    void should_return_nothing_when_park_the_car_given_parking_lot_without_any_position_and_a_car() {
         //given
         ParkingLot parkingLot = new ParkingLot();
 
         Car car = new Car();
-        for (int i = 0; i< 10; i++){
+        for (int i = 0; i < 10; i++) {
             ParkingTicket parkingTicket = parkingLot.park(car);
         }
 
         //when
         Car car11 = new Car();
-        ParkingTicket parkingTicket11 =  parkingLot.park(car);
+        ParkingTicket parkingTicket11 = parkingLot.park(car);
 
         //then
         assertNull(parkingTicket11);
@@ -72,37 +72,19 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_nothing_and_error_message_Unrecognized_parking_ticket_when_fetch_the_car_given_a_wrong_parking_ticket()throws Exception{
-        Exception exception = assertThrows(Exception.class, () ->{
+    void should_return_nothing_and_error_message_Unrecognized_parking_ticket_when_fetch_the_car_given_a_wrong_parking_ticket() throws Exception {
+        Exception exception = assertThrows(Exception.class, () -> {
             //given
             ParkingLot parkingLot = new ParkingLot();
-            Car car = new Car();
-            ParkingTicket parkingTicket = parkingLot.park(car);
+            ParkingTicket parkingTicket = new ParkingTicket();
 
             //when
-            Car nextCar = parkingLot.fetch(new ParkingTicket());
+            Car wrongParkingTicket = parkingLot.fetch(parkingTicket);
 
-            //then
-            assertNull(nextCar);
         });
-
+            //then
         assertTrue(exception.getMessage().contains("Unrecognized parking ticket"));
     }
-
-//    @Test
-//    void should_return_nothing_when_fetch_the_car_given_used_parking_ticket() throws Exception {
-//        //given
-//        ParkingLot parkingLot = new ParkingLot();
-//        ParkingTicket parkingTicket = new ParkingTicket();
-//
-//        //when
-//        Car usedParkingTicket = parkingLot.fetch(parkingTicket);
-//
-//        //then
-//        assertNull(usedParkingTicket);
-//    }
-
-
 }
 
 
