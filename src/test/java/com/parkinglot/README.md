@@ -27,3 +27,6 @@ When fetch the car
 Then return nothing
 
 [x] Case 6
+Given a parking lot, without any position, and a car
+When park the car
+Then return nothinh
