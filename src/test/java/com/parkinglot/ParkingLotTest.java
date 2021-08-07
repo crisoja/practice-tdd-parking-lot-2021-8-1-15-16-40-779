@@ -193,11 +193,11 @@ public class ParkingLotTest {
     @Test
     void should_car_park_to_the_first_parking_lot_when_standard_parking_boy_park_the_car_given_standard_parking_boy_who_manage_two_parking_lots_both_with_available_position_and_a_car() {
        //given
-        List<ParkingLot> parkingLot = new ArrayList<>();
-        parkingLot.add(new ParkingLot());
-        parkingLot.add(new ParkingLot());
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        parkingLotList.add(new ParkingLot());
+        parkingLotList.add(new ParkingLot());
         Car car = new Car();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
 
         //when
         parkingBoy.park(car);
@@ -205,5 +205,26 @@ public class ParkingLotTest {
         //then
         assertEquals(car, parkingBoy.getCarFromFirstParkingLot(car));
 
+    }
+//    Given a standard parking boy, who manage two parking lots, first is full and second with available position, and a car
+//    When park the car
+//    THen the car will be parked to the second parking lot
+
+    @Test
+    void should_car_park_to_the_second_parking_lot_when_standard_parking_boy_park_the_car_given_standard_parking_boy_manage_two_parking_lots_first_is_full_and_second_availbale_and_car() {
+        //given
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        parkingLotList.add(new ParkingLot(1));
+        parkingLotList.add(new ParkingLot(1));
+        Car firstCar = new Car();
+        Car secondCar = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
+        ParkingTicket firstCarparkingTicket = parkingLotList.get(0).park(firstCar);
+
+        //when
+        parkingBoy.park(secondCar);
+
+        //then
+        assertEquals(secondCar, parkingBoy.getCarFromSecondParkingLot(secondCar));
     }
 }
