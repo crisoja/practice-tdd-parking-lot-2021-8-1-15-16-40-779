@@ -30,14 +30,14 @@ public class ParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) throws Exception {
-        if(parkingLotList!=null){
-
-         return   parkingLotList.stream()
-                    .map(parkingLot -> parkingLot.findCarFromParkingLot())
-                    .findFirst()
-                    .orElse(null);
+        if(parkingLotList!=null) {
+            if (parkingLotList.get(0).checkTicket(parkingTicket))
+                return parkingLotList.get(0).fetch(parkingTicket);
+            else if(parkingLotList.get(1).checkTicket(parkingTicket))
+                return parkingLotList.get(1).fetch(parkingTicket);
+            else
+                throw new UnrecognizedParkingTicketException();
         }
-
         return parkingLot.fetch(parkingTicket);
     }
 

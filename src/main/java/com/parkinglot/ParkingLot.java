@@ -55,5 +55,9 @@ public class ParkingLot {
     public boolean isParkingLotFull(){
         return capacity==parkedPosition.size();
     }
+
+    public boolean checkTicket(ParkingTicket parkingTicket) {
+      return  parkedPosition.containsKey(parkingTicket);
+    }
 }
 

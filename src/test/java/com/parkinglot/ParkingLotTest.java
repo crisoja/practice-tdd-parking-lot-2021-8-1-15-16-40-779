@@ -264,6 +264,5 @@ public class ParkingLotTest {
         {
             assertTrue(exception.getMessage().contains("Unrecognized parking ticket"));
         }
-
     }
 }
