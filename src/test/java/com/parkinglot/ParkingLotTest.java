@@ -86,20 +86,18 @@ public class ParkingLotTest {
     }
     @Test
     void should_throw_error_message_Unrecognized_parking_ticket_when_fetch_the_car_given_a_parking_lot_and_used_parking_ticket() throws Exception {
-        Exception exception = assertThrows(Exception.class, () -> {
-            //given
-            ParkingLot parkingLot = new ParkingLot();
-            Car car = new Car();
-            ParkingTicket parkingTicket = parkingLot.park(car);
-            parkingLot.fetch(parkingTicket);
 
-            //when
-            Car used = parkingLot.fetch(parkingTicket);
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car();
+        ParkingTicket parkingTicket = parkingLot.park(car);
+        parkingLot.fetch(parkingTicket);
 
-        });
-        //then
+        //when & then
+        Exception exception = assertThrows(Exception.class, () -> parkingLot.fetch(parkingTicket));
         assertTrue(exception.getMessage().contains("Unrecognized parking ticket"));
     }
+
 }
 
 
