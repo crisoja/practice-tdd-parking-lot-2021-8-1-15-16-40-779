@@ -7,12 +7,12 @@ public class ParkingLot {
     private Car car;
     private Car parkedCar;
     private Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
-    private final int capacity = 10;
+    private final int CAPACITY = 10;
     private ParkingTicket ticketCount;
 
     public ParkingTicket park(Car car){
-            if(capacity==parkedPosition.size()){
-                return null;
+            if(CAPACITY==parkedPosition.size()){
+                throw new NoAvailablePositionException();
             }
 
             this.car = car;

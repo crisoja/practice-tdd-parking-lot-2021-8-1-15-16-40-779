@@ -53,24 +53,6 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_nothing_when_park_the_car_given_parking_lot_without_any_position_and_a_car() {
-        //given
-        ParkingLot parkingLot = new ParkingLot();
-
-        Car car = new Car();
-        for (int i = 0; i < 10; i++) {
-            ParkingTicket parkingTicket = parkingLot.park(car);
-        }
-
-        //when
-        Car car11 = new Car();
-        ParkingTicket parkingTicket11 = parkingLot.park(car);
-
-        //then
-        assertNull(parkingTicket11);
-    }
-
-    @Test
     void should_throw_error_message_Unrecognized_parking_ticket_when_fetch_the_car_given_a_wrong_parking_ticket() throws Exception {
 
         //given
