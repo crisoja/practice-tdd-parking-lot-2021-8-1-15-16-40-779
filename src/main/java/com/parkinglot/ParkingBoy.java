@@ -12,6 +12,6 @@ public class ParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) throws Exception {
-        return null;
+        return parkingLot.fetch(parkingTicket);
     }
 }
