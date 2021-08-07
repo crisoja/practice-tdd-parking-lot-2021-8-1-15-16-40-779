@@ -17,12 +17,13 @@ public class ParkingBoy {
     public ParkingTicket park(Car car){
 
         if(parkingLotList!=null){
-            if(!parkingLotList.get(0).isParkingLotFull()) {
-                return parkingLotList.get(0).park(car);
-            }
-                return parkingLotList.get(1).park(car);
-
+         return    parkingLotList.stream()
+                    .filter(parkingLot -> !parkingLot.isParkingLotFull())
+                    .map(parkingLot -> parkingLot.park(car))
+                    .findFirst()
+                    .orElse(null);
         }
+
         return parkingLot.park(car);
 
     }
