@@ -6,12 +6,20 @@ import java.util.Map;
 public class ParkingLot {
     private Car car;
     private Car parkedCar;
-    private Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
-    private final int CAPACITY = 10;
+    private Map<ParkingTicket, Car> parkedPosition;
+    private final static int DEFAULT_CAPACITY = 10;
     private ParkingTicket ticketCount;
+    private int capacity;
+
+    public ParkingLot(){this(DEFAULT_CAPACITY);}
+
+    public ParkingLot(int capacity){
+        parkedPosition = new HashMap<>();
+        this.capacity = capacity;
+    }
 
     public ParkingTicket park(Car car){
-            if(CAPACITY==parkedPosition.size()){
+            if(capacity==parkedPosition.size()){
                 throw new NoAvailablePositionException();
             }
 

@@ -12,7 +12,7 @@ When fetch the car
 Then return the parked car
 
 [x] Case 3
-Given a parking lot with two parked_cars_and_two parking_tickets
+Given a parking lot with two parked cars and two parkingtickets
 When fetch the car twice
 Then return the right car.
 
@@ -29,7 +29,7 @@ Then return nothing
 [x] Case 6
 Given a parking lot, without any position, and a car
 When park the car
-Then return nothinhg
+Then return nothing
 
 # story 2
 
@@ -47,3 +47,5 @@ Then error message "Unrecognized parking ticket"
 Given a full parking lot, and a car
 When park the car
 Then return error message "No available position"
+
+# story 3
