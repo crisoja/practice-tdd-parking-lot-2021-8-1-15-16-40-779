@@ -468,7 +468,7 @@ public class ParkingLotTest {
         superSmartParkingBoy.park(newCar);
 
         //then
-        assertTrue(parkingLotList.get(1).findCaratParkingLot(newCar));
+        assertTrue(parkingLotList.get(0).findCaratParkingLot(newCar));
     }
 
     @Test
@@ -500,6 +500,26 @@ public class ParkingLotTest {
         Exception exception = assertThrows(Exception.class, () -> superSmartParkingBoy.fetch(parkingTicket));
         {
             assertTrue(exception.getMessage().contains("Unrecognized parking ticket"));
+        }
+    }
+
+    @Test
+    void should_throw_error_message_No_available_position_when_super_smart_parking_boy_park_the_car_given_a_super_smart_parking_boy_who_manage_two_parking_lots_bot_without_any_position_and_a_car() {
+        //given
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        parkingLotList.add(new ParkingLot(1));
+        parkingLotList.add(new ParkingLot(1));
+        Car firstCar = new Car();
+        Car secondCar = new Car();
+        Car thirdCar = new Car();
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLotList);
+        ParkingTicket parkingTicket1 = superSmartParkingBoy.park(firstCar);
+        ParkingTicket parkingTicket2 = superSmartParkingBoy.park(secondCar);
+
+        //when & then
+        Exception exception = assertThrows(Exception.class, () -> superSmartParkingBoy.park(thirdCar));
+        {
+            assertTrue(exception.getMessage().contains("No available position"));
         }
     }
 }

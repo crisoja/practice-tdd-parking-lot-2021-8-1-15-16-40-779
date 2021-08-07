@@ -3,7 +3,10 @@ package com.parkinglot;
 import java.util.List;
 
 public class SuperSmartParkingBoy extends ParkingBoy{
-
+    private double size;
+    private double capacity;
+    private
+    ParkingLot parkingLot;
     public SuperSmartParkingBoy(ParkingLot parkingLot){
         super(parkingLot);
     }
@@ -20,8 +23,8 @@ public class SuperSmartParkingBoy extends ParkingBoy{
     }
 
     public double getAvailablePositionRate(ParkingLot parkingLot){
-        double size = parkingLot.getCapacity() - parkingLot.getParkedPositionSize();
-        double capacity = parkingLot.getCapacity();
+         size = parkingLot.getCapacity() - parkingLot.getParkedPositionSize();
+         capacity = parkingLot.getCapacity();
         double positionRate = size/capacity;
         return positionRate;
 
