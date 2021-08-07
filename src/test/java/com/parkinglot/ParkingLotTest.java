@@ -97,16 +97,31 @@ public class ParkingLotTest {
     @Test
     void should_return_a_parking_ticket_when_parking_boy_park_the_car_given_a_parking_lot_and_a_car() {
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingboy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         Car car = new Car();
 
         //when
-        ParkingTicket parkingTicket = parkingboy.park(car);
+        ParkingTicket parkingTicket = parkingBoy.park(car);
 
         //then
         assertNotNull(parkingTicket);
     }
+//    Given a parking lot with a parked car and a parking ticket
+//    When parking boy fetch the car
+//    Then return the parked car
+
+    @Test
+    void should_return_the_the_actual_car_when_parking_boy_fetch_the_car_given_a_parking_lot_with_a_parked_car_and_a_parking_ticket() throws Exception {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingboy = new ParkingBoy(parkingLot);
+        Car car = new Car();
+        ParkingTicket parkingTicket = parkingLot.park(car);
+
+        //when
+        Car actualCar =  parkingboy.fetch(parkingTicket);
+
+        //then
+        assertEquals(car, actualCar);
+    }
 }
-
-
-
