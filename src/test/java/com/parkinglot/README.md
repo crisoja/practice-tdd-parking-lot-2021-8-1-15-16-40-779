@@ -74,7 +74,7 @@ Given a parking lot, and a used ticket
 when parking boy fetch the car
 Then error message "Unrecognized parking ticket"
 
-[] Case 6
+[x] Case 6
 Given a full parking lot, and a car
 When parking boy park the car
 Then return error message "No available position"
