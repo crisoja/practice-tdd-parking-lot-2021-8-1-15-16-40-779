@@ -6,6 +6,7 @@ import java.util.List;
 public class ParkingBoy {
     ParkingLot parkingLot;
     List<ParkingLot> parkingLotList;
+    Car car = new Car();
 
     public ParkingBoy(ParkingLot parkingLot){
         this.parkingLot = parkingLot;
@@ -15,7 +16,7 @@ public class ParkingBoy {
     }
 
     public ParkingTicket park(Car car){
-
+        this.car = car;
         if(parkingLotList!=null){
          return    parkingLotList.stream()
                     .filter(parkingLot -> !parkingLot.isParkingLotFull())
@@ -30,7 +31,10 @@ public class ParkingBoy {
 
     public Car fetch(ParkingTicket parkingTicket) throws Exception {
         if(parkingLotList!=null){
-            return null;
+            if(getCarFromFirstParkingLot(car) != null){
+              return  parkingLotList.get(0).fetch(parkingTicket);
+            }
+            return  parkingLotList.get(1).fetch(parkingTicket);
         }
         return parkingLot.fetch(parkingTicket);
     }
