@@ -138,7 +138,7 @@ Given a smart parking boy, who manage two parking lots, and an unrecognized tick
 When standard parking boy fetch the car,
 Then return nothing with error message "Unrecognized parking ticket"
 
-[] Case 6
+[x] Case 6
 Given a smart parking boy, who manage two parking lots and a used ticket,
 When smart parking boy fetch the car
 then return nothing with error message "Unrecognized parking ticket"
