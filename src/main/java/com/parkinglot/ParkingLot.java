@@ -2,14 +2,13 @@ package com.parkinglot;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class ParkingLot {
     private Car car;
     private Car parkedCar;
     private Map<ParkingTicket, Car> parkedPosition;
     private final static int DEFAULT_CAPACITY = 10;
-    private ParkingTicket ticketCount;
+    private ParkingTicket parkingTicket;
 
     public int getCapacity() {
         return capacity;
@@ -25,6 +24,7 @@ public class ParkingLot {
     }
 
     public ParkingTicket park(Car car){
+
             if(capacity==parkedPosition.size()){
                 throw new NoAvailablePositionException();
             }
@@ -32,12 +32,12 @@ public class ParkingLot {
             this.car = car;
             ParkingTicket parkingTicket = new ParkingTicket();
             parkedPosition.put(parkingTicket, car);
-            ticketCount = parkingTicket;
+            this.parkingTicket = parkingTicket;
 
-        return ticketCount;
+        return this.parkingTicket;
     }
 
-    public Car fetch(ParkingTicket parkingTicket)throws Exception{
+    public Car fetch(ParkingTicket parkingTicket){
 
             if(!parkedPosition.containsKey(parkingTicket)){
                throw new UnrecognizedParkingTicketException();
@@ -51,7 +51,7 @@ public class ParkingLot {
         return   parkedPosition
                     .entrySet()
                     .stream()
-                    .filter(parkingTicket -> this.ticketCount.equals(parkingTicket.getKey()))
+                    .filter(parkingTicket -> this.parkingTicket.equals(parkingTicket.getKey()))
                     .map(parkingTicket -> parkingTicket.getValue())
                     .findFirst()
                     .orElse(null);

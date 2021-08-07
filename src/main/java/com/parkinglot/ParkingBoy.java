@@ -16,6 +16,7 @@ public class ParkingBoy {
     }
 
     public ParkingTicket park(Car car){
+
         this.car = car;
         if(parkingLotList!=null){
          return    parkingLotList.stream()
@@ -24,19 +25,17 @@ public class ParkingBoy {
                     .findFirst()
                     .orElseThrow(NoAvailablePositionException::new);
         }
-
         return parkingLot.park(car);
-
     }
 
     public Car fetch(ParkingTicket parkingTicket) throws Exception {
         if(parkingLotList!=null) {
-            if (parkingLotList.get(0).checkTicket(parkingTicket))
-                return parkingLotList.get(0).fetch(parkingTicket);
-            else if(parkingLotList.get(1).checkTicket(parkingTicket))
-                return parkingLotList.get(1).fetch(parkingTicket);
-            else
-                throw new UnrecognizedParkingTicketException();
+
+         return    parkingLotList.stream()
+                    .filter(parkingLot -> parkingLot.checkTicket(parkingTicket))
+                    .map(parkingLot -> parkingLot.fetch(parkingTicket))
+                    .findAny()
+                    .orElseThrow(UnrecognizedParkingTicketException::new);
         }
         return parkingLot.fetch(parkingTicket);
     }

@@ -30,8 +30,7 @@ public class SuperSmartParkingBoy extends ParkingBoy{
     public double getAvailablePositionRate(ParkingLot parkingLot){
          size = parkingLot.getCapacity() - parkingLot.getParkedPositionSize();
          capacity = parkingLot.getCapacity();
-        double positionRate = size/capacity;
-        return positionRate;
+        return size/capacity;
 
     }
 }
