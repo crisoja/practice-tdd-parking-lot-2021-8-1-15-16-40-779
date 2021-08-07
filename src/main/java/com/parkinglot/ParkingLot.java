@@ -10,6 +10,11 @@ public class ParkingLot {
     private Map<ParkingTicket, Car> parkedPosition;
     private final static int DEFAULT_CAPACITY = 10;
     private ParkingTicket ticketCount;
+
+    public int getCapacity() {
+        return capacity;
+    }
+
     private int capacity;
 
     public ParkingLot(){this(DEFAULT_CAPACITY);}
@@ -62,6 +67,11 @@ public class ParkingLot {
 
     public int getParkedPositionSize(){
         return parkedPosition.size();
+    }
+
+    public boolean parisCarAtfirstParkingLot(Car car) {
+       return !parkedPosition.containsValue(car);
+
     }
 }
 

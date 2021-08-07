@@ -10,4 +10,9 @@ public class SuperSmartParkingBoy extends ParkingBoy{
     public SuperSmartParkingBoy(List<ParkingLot> parkingLotList){
         super(parkingLotList);
     }
+
+    @Override
+    public ParkingTicket park(Car car){
+        return null;
+    }
 }

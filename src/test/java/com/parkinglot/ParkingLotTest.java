@@ -448,9 +448,27 @@ public class ParkingLotTest {
         assertEquals(car, superSmartParkingBoy.getCarFromFirstParkingLot(car));
     }
 
+    @Test
+    void should_park_to_the_first_parking_lot_when_smart_parking_boy_park_the_car_given_smart_parking_boy_manage_two_parking_lot_first_parking_lot_has_larger_available_position_rate_than_second_parking_lot_and_a_car() {
+        //given
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        parkingLotList.add(new ParkingLot(15));
+        parkingLotList.add(new ParkingLot(20));
 
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLotList);
+        for (int i = 0; i < 3; i++) {
+            parkingLotList.get(0).park(new Car());
+        }
+        for (int i = 0; i < 5; i++) {
+            parkingLotList.get(1).park(new Car());
+        }
 
+        //when
+        Car newCar = new Car();
+        superSmartParkingBoy.park(newCar);
 
-
+        //then
+        assertTrue(parkingLotList.get(0).parisCarAtfirstParkingLot(newCar));
+    }
 }
 
