@@ -432,5 +432,25 @@ public class ParkingLotTest {
         }
     }
 
+    @Test
+    void should_super_smart_parking_boy_park_to_first_parking_lot_when_super_smart_parking_boy_park_the_car_given_a_super_smart_parking_boy_who_manage_two_parking_lot_both_with_available_position_and_a_car() {
+        //given
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        parkingLotList.add(new ParkingLot());
+        parkingLotList.add(new ParkingLot());
+        Car car = new Car();
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLotList);
+
+        //when
+        superSmartParkingBoy.park(car);
+
+        //then
+        assertEquals(car, superSmartParkingBoy.getCarFromFirstParkingLot(car));
+    }
+
+
+
+
+
 }
 
