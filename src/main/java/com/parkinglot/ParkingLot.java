@@ -59,5 +59,9 @@ public class ParkingLot {
     public boolean checkTicket(ParkingTicket parkingTicket) {
       return  parkedPosition.containsKey(parkingTicket);
     }
+
+    public int getParkedPositionSize(){
+        return parkedPosition.size();
+    }
 }
 
