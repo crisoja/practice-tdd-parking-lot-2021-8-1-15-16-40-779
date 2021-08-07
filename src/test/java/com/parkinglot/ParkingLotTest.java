@@ -358,5 +358,26 @@ public class ParkingLotTest {
         assertEquals(secondCar, smartParkingBoy.getCarFromFirstParkingLot(secondCar));
     }
 
+    @Test
+    void should_return_the_right_car_with_each_ticket_when_smart_parking_boy_fetch_the_car_twice_given_smart_parking_boy_manage_two_parking_lots_bot_with_a_parked_car_and_two_parking_ticket() throws Exception {
+        //given
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        parkingLotList.add(new ParkingLot(1));
+        parkingLotList.add(new ParkingLot());
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
+        Car firstCar = new Car();
+        Car secondCar = new Car();
+        ParkingTicket firstCarparkingTicket = smartParkingBoy.park(firstCar);
+        ParkingTicket secondCarparkingTicket = smartParkingBoy.park(secondCar);
+
+        //when
+        Car firstCarFetch = smartParkingBoy.fetch(firstCarparkingTicket);
+        Car secondCarFetch = smartParkingBoy.fetch(secondCarparkingTicket);
+
+        //then
+        assertEquals(firstCar, firstCarFetch);
+        assertEquals(secondCar, secondCarFetch);
+    }
+
 
 }

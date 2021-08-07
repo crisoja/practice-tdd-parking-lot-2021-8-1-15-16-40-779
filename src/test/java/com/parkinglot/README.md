@@ -128,17 +128,22 @@ Given a smart parking boy, who manage two parking lots, second parking lot has l
 When smart parking boy park the car
 Then the car will be parked to the first parking lot
 
-[] Case 4
+[x] Case 4
+Given a smart parking boy who manage two parking lots bot with a parked car and two parking ticket
+When smart parking boy fetch the car twice
+Then return the right car with each ticket
+
+[] Case 5
 Given a smart parking boy, who manage two parking lots, and an unrecognized ticket,
 When standard parking boy fetch the car,
 Then return nothing with error message "Unrecognized parking ticket"
 
-[] Case 5
+[] Case 6
 Given a smart parking boy, who manage two parking lots and a used ticket,
 When smart parking boy fetch the car
 then return nothing with error message "Unrecognized parking ticket"
 
-[] Case 6
+[] Case 7
 Given a smart parking boy who manage two parking lots, bot without any position and a car
 When smart parking boy park the car
 Then return nothing with error message "No available position"
