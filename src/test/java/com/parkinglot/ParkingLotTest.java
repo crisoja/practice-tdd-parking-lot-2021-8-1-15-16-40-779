@@ -72,6 +72,7 @@ public class ParkingLotTest {
             assertTrue(exception.getMessage().contains("Unrecognized parking ticket"));
         }
     }
+
     @Test
     void should_throw_error_message_Unrecognized_parking_ticket_when_fetch_the_car_given_a_parking_lot_and_used_parking_ticket() throws Exception {
 
@@ -122,7 +123,7 @@ public class ParkingLotTest {
         ParkingTicket parkingTicket = parkingLot.park(car);
 
         //when
-        Car actualCar =  parkingboy.fetch(parkingTicket);
+        Car actualCar = parkingboy.fetch(parkingTicket);
 
         //then
         assertEquals(car, actualCar);
@@ -163,6 +164,7 @@ public class ParkingLotTest {
             assertTrue(exception.getMessage().contains("Unrecognized parking ticket"));
         }
     }
+
     @Test
     void should_throw_error_message_Unrecognized_parking_ticket_when_parking_boy_fetch_the_car_given_a_parking_lot_and_used_parking_ticket() throws Exception {
 
@@ -192,7 +194,7 @@ public class ParkingLotTest {
 
     @Test
     void should_car_park_to_the_first_parking_lot_when_standard_parking_boy_park_the_car_given_standard_parking_boy_who_manage_two_parking_lots_both_with_available_position_and_a_car() {
-       //given
+        //given
         List<ParkingLot> parkingLotList = new ArrayList<>();
         parkingLotList.add(new ParkingLot());
         parkingLotList.add(new ParkingLot());
@@ -242,13 +244,13 @@ public class ParkingLotTest {
         Car secondCarFetch = parkingBoy.fetch(secondCarparkingTicket);
 
         //then
-        assertEquals(firstCar, firstCarFetch );
+        assertEquals(firstCar, firstCarFetch);
         assertEquals(secondCar, secondCarFetch);
     }
 
 
     @Test
-    void should_throw_error_message_Unrecognized_parking_ticket_when_standard_parking_boy_fetch_the_car_iven_a_standard_parking_boy_who_manage_two_parking_lots_and_a_used_ticket() throws Exception{
+    void should_throw_error_message_Unrecognized_parking_ticket_when_standard_parking_boy_fetch_the_car_iven_a_standard_parking_boy_who_manage_two_parking_lots_and_a_used_ticket() throws Exception {
 
         //given
         List<ParkingLot> parkingLotList = new ArrayList<>();
@@ -261,6 +263,24 @@ public class ParkingLotTest {
 
         //when & then
         Exception exception = assertThrows(Exception.class, () -> parkingBoy.fetch(new ParkingTicket()));
+        {
+            assertTrue(exception.getMessage().contains("Unrecognized parking ticket"));
+        }
+    }
+
+    @Test
+    void should_throw_error_message_Unrecognized_parking_ticket_when_standard_parking_boy_fetch_the_car_given_a_standard_parking_boy_who_manage_two_parking_lots_and_a_used_ticket() throws Exception {
+        //given
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        parkingLotList.add(new ParkingLot());
+        parkingLotList.add(new ParkingLot());
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
+        ParkingTicket parkingTicket = parkingBoy.park(car);
+        parkingBoy.fetch(parkingTicket);
+
+        //when & then
+        Exception exception = assertThrows(Exception.class, () -> parkingBoy.fetch(parkingTicket));
         {
             assertTrue(exception.getMessage().contains("Unrecognized parking ticket"));
         }
