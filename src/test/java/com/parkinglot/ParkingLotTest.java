@@ -206,9 +206,6 @@ public class ParkingLotTest {
         assertEquals(car, parkingBoy.getCarFromFirstParkingLot(car));
 
     }
-//    Given a standard parking boy, who manage two parking lots, first is full and second with available position, and a car
-//    When park the car
-//    THen the car will be parked to the second parking lot
 
     @Test
     void should_car_park_to_the_second_parking_lot_when_standard_parking_boy_park_the_car_given_standard_parking_boy_manage_two_parking_lots_first_is_full_and_second_availbale_and_car() {
@@ -226,5 +223,30 @@ public class ParkingLotTest {
 
         //then
         assertEquals(secondCar, parkingBoy.getCarFromSecondParkingLot(secondCar));
+    }
+//    Given a standard parking boy who manage two parking lots bot with a parked car and two parking ticket
+//    When standard parking boy fetch the car twice
+//    Then return the right car with each ticket
+
+
+    @Test
+    void should_return_the_right_car_with_each_ticket_when_standard_parking_boy_fetch_the_car_twice_given_standard_parking_boy_manage_two_parking_lots_bot_with_a_parked_car_and_two_parking_ticket() throws Exception {
+        //given
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        parkingLotList.add(new ParkingLot(1));
+        parkingLotList.add(new ParkingLot());
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
+        Car firstCar = new Car();
+        Car secondCar = new Car();
+        ParkingTicket firstCarparkingTicket = parkingBoy.park(firstCar);
+        ParkingTicket secondCarparkingTicket = parkingBoy.park(secondCar);
+
+        //when
+        Car firstCarFetch = parkingBoy.fetch(firstCarparkingTicket);
+        Car secondCarFetch = parkingBoy.fetch(secondCarparkingTicket);
+
+        //then
+        assertEquals(firstCar, firstCarFetch );
+        assertEquals(secondCar, secondCarFetch);
     }
 }

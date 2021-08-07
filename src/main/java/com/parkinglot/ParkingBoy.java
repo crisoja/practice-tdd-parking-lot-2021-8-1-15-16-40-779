@@ -29,7 +29,9 @@ public class ParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) throws Exception {
-        parkingLotList = new ArrayList<>();
+        if(parkingLotList!=null){
+            return null;
+        }
         return parkingLot.fetch(parkingTicket);
     }
 

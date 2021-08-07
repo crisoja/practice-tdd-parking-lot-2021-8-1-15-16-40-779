@@ -91,7 +91,7 @@ Given a standard parking boy, who manage two parking lots, first is full and sec
 When standard parking boy park the car
 THen the car will be parked to the second parking lot
 
-[] Case 3
+[x] Case 3
 Given a standard parking boy who manage two parking lots bot with a parked car and two parking ticket
 When standard parking boy fetch the car twice
 Then return the right car with each ticket
