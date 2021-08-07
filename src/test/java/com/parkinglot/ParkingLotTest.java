@@ -224,10 +224,6 @@ public class ParkingLotTest {
         //then
         assertEquals(secondCar, parkingBoy.getCarFromSecondParkingLot(secondCar));
     }
-//    Given a standard parking boy who manage two parking lots bot with a parked car and two parking ticket
-//    When standard parking boy fetch the car twice
-//    Then return the right car with each ticket
-
 
     @Test
     void should_return_the_right_car_with_each_ticket_when_standard_parking_boy_fetch_the_car_twice_given_standard_parking_boy_manage_two_parking_lots_bot_with_a_parked_car_and_two_parking_ticket() throws Exception {
@@ -248,5 +244,26 @@ public class ParkingLotTest {
         //then
         assertEquals(firstCar, firstCarFetch );
         assertEquals(secondCar, secondCarFetch);
+    }
+
+
+    @Test
+    void should_throw_error_message_Unrecognized_parking_ticket_when_standard_parking_boy_fetch_the_car_iven_a_standard_parking_boy_who_manage_two_parking_lots_and_a_used_ticket() throws Exception{
+
+        //given
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        parkingLotList.add(new ParkingLot());
+        parkingLotList.add(new ParkingLot());
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLotList);
+        Car car = new Car();
+        ParkingTicket parkingTicket = parkingBoy.park(car);
+
+
+        //when & then
+        Exception exception = assertThrows(Exception.class, () -> parkingBoy.fetch(new ParkingTicket()));
+        {
+            assertTrue(exception.getMessage().contains("Unrecognized parking ticket"));
+        }
+
     }
 }
