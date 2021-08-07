@@ -69,8 +69,8 @@ public class ParkingLot {
         return parkedPosition.size();
     }
 
-    public boolean parisCarAtfirstParkingLot(Car car) {
-       return !parkedPosition.containsValue(car);
+    public boolean findCaratParkingLot(Car car) {
+       return parkedPosition.containsValue(car);
 
     }
 }

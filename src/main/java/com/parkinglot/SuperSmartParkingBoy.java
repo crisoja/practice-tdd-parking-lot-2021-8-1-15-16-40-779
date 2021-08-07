@@ -13,6 +13,17 @@ public class SuperSmartParkingBoy extends ParkingBoy{
 
     @Override
     public ParkingTicket park(Car car){
-        return null;
+       if(getAvailablePositionRate(parkingLotList.get(0)) >=  getAvailablePositionRate(parkingLotList.get(1))){
+        return  parkingLotList.get(0).park(car);
+       }
+        return  parkingLotList.get(0).park(car);
+    }
+
+    public double getAvailablePositionRate(ParkingLot parkingLot){
+        double size = parkingLot.getCapacity() - parkingLot.getParkedPositionSize();
+        double capacity = parkingLot.getCapacity();
+        double positionRate = size/capacity;
+        return positionRate;
+
     }
 }

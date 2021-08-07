@@ -162,7 +162,7 @@ When super smart parking boy park the car
 Then the car will be parked to the second parking lot
 
 
-[] Case 3
+[x] Case 3
 Given a smart parking boy, who manage two parking lots, second parking lot has arger available position rate than first parking lot, and a car
 When smart parking boy park the car
 Then the car will be parked to the first parking lot
