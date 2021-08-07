@@ -133,7 +133,7 @@ Given a smart parking boy who manage two parking lots bot with a parked car and 
 When smart parking boy fetch the car twice
 Then return the right car with each ticket
 
-[] Case 5
+[x] Case 5
 Given a smart parking boy, who manage two parking lots, and an unrecognized ticket,
 When standard parking boy fetch the car,
 Then return nothing with error message "Unrecognized parking ticket"

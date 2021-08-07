@@ -379,5 +379,19 @@ public class ParkingLotTest {
         assertEquals(secondCar, secondCarFetch);
     }
 
+    @Test
+    void should_throw_error_message_Unrecognized_parking_ticket_when_standard_parking_boy_fetch_the_car_given_a_smart_parking_boy_who_manage_two_parking_lots_and_unrecognized_ticket() {
 
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingTicket parkingTicket = new ParkingTicket();
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLot);
+
+        //when & then
+        Exception exception = assertThrows(Exception.class, () -> smartParkingBoy.fetch(parkingTicket));
+        {
+            assertTrue(exception.getMessage().contains("Unrecognized parking ticket"));
+        }
+    }
 }
+
