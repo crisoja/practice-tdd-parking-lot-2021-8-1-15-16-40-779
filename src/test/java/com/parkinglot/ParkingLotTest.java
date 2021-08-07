@@ -468,7 +468,7 @@ public class ParkingLotTest {
         superSmartParkingBoy.park(newCar);
 
         //then
-        assertTrue(parkingLotList.get(0).parisCarAtfirstParkingLot(newCar));
+        assertTrue(parkingLotList.get(1).findCaratParkingLot(newCar));
     }
 }
 
