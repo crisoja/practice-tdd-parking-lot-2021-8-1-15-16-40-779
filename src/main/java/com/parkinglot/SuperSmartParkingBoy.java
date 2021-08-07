@@ -19,6 +19,11 @@ public class SuperSmartParkingBoy extends ParkingBoy{
        if(getAvailablePositionRate(parkingLotList.get(0)) >=  getAvailablePositionRate(parkingLotList.get(1))){
         return  parkingLotList.get(0).park(car);
        }
+       else if(size==capacity){
+           parkingLot = parkingLotList.get(0);
+           parkingLot = parkingLotList.get(1);
+           return parkingLot.park(car);
+       }
         return  parkingLotList.get(0).park(car);
     }
 
