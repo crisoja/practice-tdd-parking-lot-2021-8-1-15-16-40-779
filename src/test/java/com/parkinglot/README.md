@@ -49,3 +49,32 @@ When park the car
 Then return error message "No available position"
 
 # story 3
+[] Case1  
+Given a parking lot, and a car  
+When parking boy park the car  
+Then return a parking ticket.
+
+[] Case 2
+Given a parking lot with a parked car and a parking ticket
+When parking boy fetch the car
+Then return the parked car
+
+[] Case 3
+Given a parking lot with two parked cars and two parkingtickets
+When parking boy fetch the car twice
+Then return the right car.
+
+[] Case 4
+Given a parking lot, and a wrong ticket
+when parking boy fetch the car
+Then return error message "Unrecognized parking ticket"
+
+[] Case 5
+Given a parking lot, and a used ticket
+when parking boy fetch the car
+Then error message "Unrecognized parking ticket"
+
+[] Case 6
+Given a full parking lot, and a car
+When parking boy park the car
+Then return error message "No available position"
