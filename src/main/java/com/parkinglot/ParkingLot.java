@@ -51,5 +51,9 @@ public class ParkingLot {
                     .findFirst()
                     .orElse(null);
     }
+
+    public boolean isParkingLotFull(){
+        return capacity==parkedPosition.size();
+    }
 }
 
