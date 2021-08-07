@@ -15,7 +15,10 @@ public class ParkingBoy {
     }
 
     public ParkingTicket park(Car car){
-       return parkingLot.park(car);
+        if(parkingLotList==null){
+            return parkingLot.park(car);
+        }
+       return parkingLotList.get(0).park(car);
     }
 
     public Car fetch(ParkingTicket parkingTicket) throws Exception {
@@ -23,7 +26,8 @@ public class ParkingBoy {
         return parkingLot.fetch(parkingTicket);
     }
 
-    public Car getCarFromFirstParkingLot() {
-        return null;
+    public Car getCarFromFirstParkingLot(Car car) {
+        return parkingLotList.get(0).findCarFromParkingLot();
+
     }
 }

@@ -203,7 +203,7 @@ public class ParkingLotTest {
         parkingBoy.park(car);
 
         //then
-        assertEquals(car, parkingBoy.getCarFromFirstParkingLot());
+        assertEquals(car, parkingBoy.getCarFromFirstParkingLot(car));
 
     }
 }

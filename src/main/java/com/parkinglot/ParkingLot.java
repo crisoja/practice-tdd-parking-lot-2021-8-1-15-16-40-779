@@ -2,6 +2,7 @@ package com.parkinglot;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ParkingLot {
     private Car car;
@@ -39,6 +40,16 @@ public class ParkingLot {
             parkedCar =  parkedPosition.get(parkingTicket);
             parkedPosition.remove(parkingTicket, car);
             return parkedCar;
+    }
+
+    public Car findCarFromParkingLot(){
+        return   parkedPosition
+                    .entrySet()
+                    .stream()
+                    .filter(cars -> this.car.equals(cars.getValue()))
+                    .map(Map.Entry::getValue)
+                    .findFirst()
+                    .orElse(null);
     }
 }
 
