@@ -69,7 +69,7 @@ Given a parking lot, and a wrong ticket
 when parking boy fetch the car
 Then return error message "Unrecognized parking ticket"
 
-[] Case 5
+[x] Case 5
 Given a parking lot, and a used ticket
 when parking boy fetch the car
 Then error message "Unrecognized parking ticket"
