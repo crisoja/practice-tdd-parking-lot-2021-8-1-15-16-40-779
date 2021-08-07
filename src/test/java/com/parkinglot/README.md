@@ -29,4 +29,21 @@ Then return nothing
 [x] Case 6
 Given a parking lot, without any position, and a car
 When park the car
-Then return nothinh
+Then return nothinhg
+
+# story 2
+
+[x] Case 1
+Given a parking lot, and a wrong ticket
+when fetch the car
+Then return error message "Unrecognized parking ticket"
+
+[x] Case 2
+Given a parking lot, and a used ticket
+when fetch the car
+Then error message "Unrecognized parking ticket"
+
+[x] Case 3
+Given a full parking lot, and a car
+When park the car
+Then return error message "No available position"

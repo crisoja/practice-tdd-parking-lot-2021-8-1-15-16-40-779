@@ -28,7 +28,6 @@ public class ParkingLot {
             if(!parkedPosition.containsKey(parkingTicket)){
                throw new UnrecognizedParkingTicketException();
             }
-
             parkedCar =  parkedPosition.get(parkingTicket);
             parkedPosition.remove(parkingTicket, car);
             return parkedCar;
