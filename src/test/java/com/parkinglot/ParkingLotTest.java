@@ -1,6 +1,12 @@
 package com.parkinglot;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
+
+import javax.sql.rowset.serial.SerialStruct;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -184,4 +190,20 @@ public class ParkingLotTest {
         assertTrue(exception.getMessage().contains("No available position"));
     }
 
+    @Test
+    void should_car_park_to_the_first_parking_lot_when_standard_parking_boy_park_the_car_given_standard_parking_boy_who_manage_two_parking_lots_both_with_available_position_and_a_car() {
+       //given
+        List<ParkingLot> parkingLot = new ArrayList<>();
+        parkingLot.add(new ParkingLot());
+        parkingLot.add(new ParkingLot());
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+
+        //when
+        parkingBoy.park(car);
+
+        //then
+        assertEquals(car, parkingBoy.getCarFromFirstParkingLot());
+
+    }
 }
