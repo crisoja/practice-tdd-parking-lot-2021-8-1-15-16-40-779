@@ -123,7 +123,7 @@ Given a smart parking boy, who manage two parking lots, first parking lot has le
 When smart parking boy park the car
 Then the car will be parked to the second parking lot
 
-[] Case 3
+[x] Case 3
 Given a smart parking boy, who manage two parking lots, second parking lot has less position than first parking lot, and a car
 When smart parking boy park the car
 Then the car will be parked to the first parking lot
