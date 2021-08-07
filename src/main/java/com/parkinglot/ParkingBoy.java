@@ -22,7 +22,7 @@ public class ParkingBoy {
                     .filter(parkingLot -> !parkingLot.isParkingLotFull())
                     .map(parkingLot -> parkingLot.park(car))
                     .findFirst()
-                    .orElse(null);
+                    .orElseThrow(NoAvailablePositionException::new);
         }
 
         return parkingLot.park(car);
