@@ -31,11 +31,13 @@ public class ParkingBoy {
 
     public Car fetch(ParkingTicket parkingTicket) throws Exception {
         if(parkingLotList!=null){
-            if(getCarFromFirstParkingLot(car) != null){
-              return  parkingLotList.get(0).fetch(parkingTicket);
-            }
-            return  parkingLotList.get(1).fetch(parkingTicket);
+
+         return   parkingLotList.stream()
+                    .map(parkingLot -> parkingLot.findCarFromParkingLot())
+                    .findFirst()
+                    .orElse(null);
         }
+
         return parkingLot.fetch(parkingTicket);
     }
 

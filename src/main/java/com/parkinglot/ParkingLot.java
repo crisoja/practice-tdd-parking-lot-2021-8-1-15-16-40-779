@@ -46,8 +46,8 @@ public class ParkingLot {
         return   parkedPosition
                     .entrySet()
                     .stream()
-                    .filter(cars -> this.car.equals(cars.getValue()))
-                    .map(Map.Entry::getValue)
+                    .filter(parkingTicket -> this.ticketCount.equals(parkingTicket.getKey()))
+                    .map(parkingTicket -> parkingTicket.getValue())
                     .findFirst()
                     .orElse(null);
     }
