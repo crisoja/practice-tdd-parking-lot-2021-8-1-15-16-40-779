@@ -168,7 +168,7 @@ When smart parking boy park the car
 Then the car will be parked to the first parking lot
 
 
-[] Case 4
+[x] Case 4
 Given a super smart parking boy, who manage two parking lots, and an unrecognized ticket,
 When standard parking boy fetch the car,
 Then return nothing with error message "Unrecognized parking ticket"
