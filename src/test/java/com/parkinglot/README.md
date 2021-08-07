@@ -143,7 +143,7 @@ Given a smart parking boy, who manage two parking lots and a used ticket,
 When smart parking boy fetch the car
 then return nothing with error message "Unrecognized parking ticket"
 
-[] Case 7
+[x] Case 7
 Given a smart parking boy who manage two parking lots, bot without any position and a car
 When smart parking boy park the car
 Then return nothing with error message "No available position"

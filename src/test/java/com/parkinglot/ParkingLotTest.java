@@ -411,5 +411,26 @@ public class ParkingLotTest {
         }
     }
 
+
+    @Test
+    void should_throw_error_message_No_available_position_when_smart_parking_boy_park_the_car_given_a_smart_parking_boy_who_manage_two_parking_lots_bot_without_any_position_and_a_car() {
+        //given
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        parkingLotList.add(new ParkingLot(1));
+        parkingLotList.add(new ParkingLot(1));
+        Car firstCar = new Car();
+        Car secondCar = new Car();
+        Car thirdCar = new Car();
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
+        ParkingTicket parkingTicket1 = smartParkingBoy.park(firstCar);
+        ParkingTicket parkingTicket2 = smartParkingBoy.park(secondCar);
+
+        //when & then
+        Exception exception = assertThrows(Exception.class, () -> smartParkingBoy.park(thirdCar));
+        {
+            assertTrue(exception.getMessage().contains("No available position"));
+        }
+    }
+
 }
 
