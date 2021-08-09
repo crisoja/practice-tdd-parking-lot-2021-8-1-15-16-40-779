@@ -17,11 +17,13 @@ public class SmartStandardParkingBoy extends StandardParkingBoy {
     public ParkingTicket park(Car car) {
         if (parkingLotList != null) {
             return parkingLotList.stream()
-                    .min(Comparator.comparing(parkingLot -> parkingLot.getParkedPositionSize()))
+                    .max(Comparator.comparing(parkingLot -> getLargestAvailableSpace(parkingLot)))
                     .map(parkingLot -> parkingLot.park(car))
                     .orElse(null);
         }
         return parkingLot.park(car);
-
+    }
+    public int getLargestAvailableSpace(ParkingLot parkingLot){
+        return parkingLot.getCapacity() - parkingLot.getParkedPositionSize();
     }
 }
