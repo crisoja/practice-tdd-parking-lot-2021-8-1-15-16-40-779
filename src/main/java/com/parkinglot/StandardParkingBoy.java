@@ -3,10 +3,7 @@ package com.parkinglot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StandardParkingBoy {
-    ParkingLot parkingLot;
-    List<ParkingLot> parkingLotList;
-    Car car = new Car();
+public class StandardParkingBoy extends ParkingBoy{
 
     public StandardParkingBoy(ParkingLot parkingLot){
         this.parkingLot = parkingLot;
