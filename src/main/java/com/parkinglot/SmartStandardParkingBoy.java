@@ -9,7 +9,7 @@ public class SmartStandardParkingBoy extends StandardParkingBoy {
         super(parkingLotList);
     }
 
-    public SmartStandardParkingBoy(ParkingLot parkingLot){
+    public SmartStandardParkingBoy(ParkingLot parkingLot) {
         super(parkingLot);
     }
 
@@ -23,7 +23,8 @@ public class SmartStandardParkingBoy extends StandardParkingBoy {
         }
         return parkingLot.park(car);
     }
-    public int getLargestAvailableSpace(ParkingLot parkingLot){
+
+    public int getLargestAvailableSpace(ParkingLot parkingLot) {
         return parkingLot.getCapacity() - parkingLot.getParkedPositionSize();
     }
 }
