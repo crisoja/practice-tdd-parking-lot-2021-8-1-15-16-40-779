@@ -12,8 +12,8 @@ public class StandardParkingBoy extends ParkingBoy{
         this.parkingLotList = parkingLotList;
     }
 
+    @Override
     public ParkingTicket park(Car car){
-
         this.car = car;
         if(parkingLotList!=null){
          return    parkingLotList.stream()
