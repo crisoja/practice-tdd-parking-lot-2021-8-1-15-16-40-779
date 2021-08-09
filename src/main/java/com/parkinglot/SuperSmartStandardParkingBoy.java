@@ -1,5 +1,6 @@
 package com.parkinglot;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class SuperSmartStandardParkingBoy extends StandardParkingBoy {
@@ -16,15 +17,11 @@ public class SuperSmartStandardParkingBoy extends StandardParkingBoy {
 
     @Override
     public ParkingTicket park(Car car){
-       if(getAvailablePositionRate(parkingLotList.get(0)) >=  getAvailablePositionRate(parkingLotList.get(1))){
-        return  parkingLotList.get(0).park(car);
-       }
-       else if(size==capacity){
-           parkingLot = parkingLotList.get(0);
-           parkingLot = parkingLotList.get(1);
-           return parkingLot.park(car);
-       }
-        return  parkingLotList.get(0).park(car);
+
+     return   parkingLotList.stream()
+                .max(Comparator.comparing(parkingLot ->getAvailablePositionRate(parkingLot)))
+                .map(parkingLot -> parkingLot.park(car))
+                .orElse(null);
     }
 
     public double getAvailablePositionRate(ParkingLot parkingLot){
