@@ -1,6 +1,5 @@
 package com.parkinglot;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class StandardParkingBoy extends ParkingBoy{
