@@ -3,13 +3,13 @@ package com.parkinglot;
 import java.util.Comparator;
 import java.util.List;
 
-public class SmartParkingBoy extends ParkingBoy {
+public class SmartStandardParkingBoy extends StandardParkingBoy {
 
-    public SmartParkingBoy(List<ParkingLot> parkingLotList) {
+    public SmartStandardParkingBoy(List<ParkingLot> parkingLotList) {
         super(parkingLotList);
     }
 
-    public SmartParkingBoy(ParkingLot parkingLot){
+    public SmartStandardParkingBoy(ParkingLot parkingLot){
         super(parkingLot);
     }
 

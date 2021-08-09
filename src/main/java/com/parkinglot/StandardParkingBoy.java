@@ -3,15 +3,15 @@ package com.parkinglot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingBoy {
+public class StandardParkingBoy {
     ParkingLot parkingLot;
     List<ParkingLot> parkingLotList;
     Car car = new Car();
 
-    public ParkingBoy(ParkingLot parkingLot){
+    public StandardParkingBoy(ParkingLot parkingLot){
         this.parkingLot = parkingLot;
     }
-    public ParkingBoy(List<ParkingLot> parkingLotList){
+    public StandardParkingBoy(List<ParkingLot> parkingLotList){
         this.parkingLotList = parkingLotList;
     }
 
