@@ -2,20 +2,21 @@ package com.parkinglot;
 
 import java.util.List;
 
-public class StandardParkingBoy extends ParkingBoy{
+public class StandardParkingBoy extends ParkingBoy {
 
-    public StandardParkingBoy(ParkingLot parkingLot){
+    public StandardParkingBoy(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
     }
-    public StandardParkingBoy(List<ParkingLot> parkingLotList){
+
+    public StandardParkingBoy(List<ParkingLot> parkingLotList) {
         this.parkingLotList = parkingLotList;
     }
 
     @Override
-    public ParkingTicket park(Car car){
+    public ParkingTicket park(Car car) {
         this.car = car;
-        if(parkingLotList!=null){
-         return    parkingLotList.stream()
+        if (parkingLotList != null) {
+            return parkingLotList.stream()
                     .filter(parkingLot -> !parkingLot.isParkingLotFull())
                     .findFirst()
                     .map(parkingLot -> parkingLot.park(car))
@@ -25,9 +26,9 @@ public class StandardParkingBoy extends ParkingBoy{
     }
 
     public Car fetch(ParkingTicket parkingTicket) throws Exception {
-        if(parkingLotList!=null) {
+        if (parkingLotList != null) {
 
-         return    parkingLotList.stream()
+            return parkingLotList.stream()
                     .filter(parkingLot -> parkingLot.checkTicket(parkingTicket))
                     .map(parkingLot -> parkingLot.fetch(parkingTicket))
                     .findAny()
