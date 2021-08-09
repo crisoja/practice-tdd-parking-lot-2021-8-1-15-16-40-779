@@ -4,10 +4,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SuperSmartStandardParkingBoy extends StandardParkingBoy {
-    private double size;
-    private double capacity;
-    private
-    ParkingLot parkingLot;
     public SuperSmartStandardParkingBoy(ParkingLot parkingLot){
         super(parkingLot);
     }
