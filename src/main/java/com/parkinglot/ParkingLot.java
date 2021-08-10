@@ -7,7 +7,7 @@ public class ParkingLot {
     private Car car;
     private Car parkedCar;
     private Map<ParkingTicket, Car> parkedPositions;
-    private final static int DEFAULT_CAPACITY = 10;
+    private final static int DEFAULT_PARKING_LOT_CAPACITY = 10;
     private ParkingTicket parkingTicket;
 
     public int getCapacity() {
@@ -17,7 +17,7 @@ public class ParkingLot {
     private int capacity;
 
     public ParkingLot() {
-        this(DEFAULT_CAPACITY);
+        this(DEFAULT_PARKING_LOT_CAPACITY);
     }
 
     public ParkingLot(int capacity) {
