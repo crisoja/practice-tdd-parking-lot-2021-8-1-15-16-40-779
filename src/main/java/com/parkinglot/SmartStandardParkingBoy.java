@@ -17,7 +17,7 @@ public class SmartStandardParkingBoy extends StandardParkingBoy {
     public ParkingTicket park(Car car) {
         if (parkingLots != null) {
             return parkingLots.stream()
-                    .max(Comparator.comparing(parkingLot -> getLargestAvailableSpace(parkingLot)))
+                    .max(Comparator.comparing(this::getLargestAvailableSpace))
                     .map(parkingLot -> parkingLot.park(car))
                     .orElse(null);
         }
