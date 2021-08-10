@@ -19,9 +19,9 @@ public class ParkingLot {
         this(DEFAULT_PARKING_LOT_CAPACITY);
     }
 
-    public ParkingLot(int capacity) {
+    public ParkingLot(int parkingLotCapacity) {
         parkedPositions = new HashMap<>();
-        this.parkingLotCapacity = capacity;
+        this.parkingLotCapacity = parkingLotCapacity;
     }
 
     public ParkingTicket park(Car car) {
