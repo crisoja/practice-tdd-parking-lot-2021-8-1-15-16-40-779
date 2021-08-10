@@ -25,16 +25,6 @@ public class StandardParkingBoy extends ParkingBoy {
         return parkingLot.park(car);
     }
 
-    public Car fetch(ParkingTicket parkingTicket) throws Exception {
-        if (parkingLots != null) {
-            return parkingLots.stream()
-                    .filter(parkingLot -> parkingLot.checkTicket(parkingTicket))
-                    .map(parkingLot -> parkingLot.fetch(parkingTicket))
-                    .findAny()
-                    .orElseThrow(UnrecognizedParkingTicketException::new);
-        }
-        return parkingLot.fetch(parkingTicket);
-    }
 
     public Car getCarFromFirstParkingLot(Car car) {
         return parkingLots.get(0).findCarFromParkingLot();
