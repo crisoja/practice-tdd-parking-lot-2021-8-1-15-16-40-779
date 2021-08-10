@@ -6,7 +6,7 @@ import java.util.Map;
 public class ParkingLot {
     private Car car;
     private Car parkedCar;
-    private Map<ParkingTicket, Car> parkedPosition;
+    private Map<ParkingTicket, Car> parkedPositions;
     private final static int DEFAULT_CAPACITY = 10;
     private ParkingTicket parkingTicket;
 
@@ -21,19 +21,19 @@ public class ParkingLot {
     }
 
     public ParkingLot(int capacity) {
-        parkedPosition = new HashMap<>();
+        parkedPositions = new HashMap<>();
         this.capacity = capacity;
     }
 
     public ParkingTicket park(Car car) {
 
-        if (capacity == parkedPosition.size()) {
+        if (capacity == parkedPositions.size()) {
             throw new NoAvailablePositionException();
         }
 
         this.car = car;
         ParkingTicket parkingTicket = new ParkingTicket();
-        parkedPosition.put(parkingTicket, car);
+        parkedPositions.put(parkingTicket, car);
         this.parkingTicket = parkingTicket;
 
         return this.parkingTicket;
@@ -41,16 +41,16 @@ public class ParkingLot {
 
     public Car fetch(ParkingTicket parkingTicket) {
 
-        if (!parkedPosition.containsKey(parkingTicket)) {
+        if (!parkedPositions.containsKey(parkingTicket)) {
             throw new UnrecognizedParkingTicketException();
         }
-        parkedCar = parkedPosition.get(parkingTicket);
-        parkedPosition.remove(parkingTicket, car);
+        parkedCar = parkedPositions.get(parkingTicket);
+        parkedPositions.remove(parkingTicket, car);
         return parkedCar;
     }
 
     public Car findCarFromParkingLot() {
-        return parkedPosition
+        return parkedPositions
                 .entrySet()
                 .stream()
                 .filter(parkingTicket -> this.parkingTicket.equals(parkingTicket.getKey()))
@@ -60,19 +60,19 @@ public class ParkingLot {
     }
 
     public boolean isParkingLotFull() {
-        return capacity == parkedPosition.size();
+        return capacity == parkedPositions.size();
     }
 
     public boolean checkTicket(ParkingTicket parkingTicket) {
-        return parkedPosition.containsKey(parkingTicket);
+        return parkedPositions.containsKey(parkingTicket);
     }
 
     public int getParkedPositionSize() {
-        return parkedPosition.size();
+        return parkedPositions.size();
     }
 
     public boolean findCaratParkingLot(Car car) {
-        return parkedPosition.containsValue(car);
+        return parkedPositions.containsValue(car);
 
     }
 }
