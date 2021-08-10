@@ -97,7 +97,7 @@ public class SuperSmartStandardParkingBoyTest {
         superSmartParkingBoy.park(newCar);
 
         //then
-        assertTrue(parkingLotList.get(0).findCaratParkingLot(newCar));
+        assertTrue(parkingLotList.get(0).findCarAtParkingLot(newCar));
     }
 
 }

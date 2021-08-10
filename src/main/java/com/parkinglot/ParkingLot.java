@@ -70,7 +70,7 @@ public class ParkingLot {
         return parkedPositions.size();
     }
 
-    public boolean findCaratParkingLot(Car car) {
+    public boolean findCarAtParkingLot(Car car) {
         return parkedPositions.containsValue(car);
 
     }
