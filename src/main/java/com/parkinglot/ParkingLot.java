@@ -53,7 +53,7 @@ public class ParkingLot {
                 .entrySet()
                 .stream()
                 .filter(parkingTicket -> this.parkingTicket.equals(parkingTicket.getKey()))
-                .map(parkingTicket -> parkingTicket.getValue())
+                .map(Map.Entry::getValue)
                 .findFirst()
                 .orElse(null);
     }
