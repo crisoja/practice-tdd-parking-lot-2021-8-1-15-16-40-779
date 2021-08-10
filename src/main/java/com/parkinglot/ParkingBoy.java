@@ -34,7 +34,7 @@ public abstract class ParkingBoy {
 
     }
 
-    public Car getCarFromSecondParkingLot(Car Car) {
+    public Car getCarFromSecondParkingLot() {
         return parkingLots.get(1).findCarFromParkingLot();
     }
 

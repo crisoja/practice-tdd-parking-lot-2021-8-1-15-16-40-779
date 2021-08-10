@@ -56,7 +56,7 @@ public class StandardParkingBoyTest {
         standardParkingBoy.park(secondCar);
 
         //then
-        assertEquals(secondCar, standardParkingBoy.getCarFromSecondParkingLot(secondCar));
+        assertEquals(secondCar, standardParkingBoy.getCarFromSecondParkingLot());
     }
 
     @Test
