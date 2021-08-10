@@ -35,7 +35,7 @@ public abstract class ParkingBoy {
                 .orElse(null);
     }
 
-    public Car getCarFromSecondParkingLot() {
+    public Car getCarFromOtherParkingLot() {
         return parkingLots.get(1).findCarFromParkingLot();
     }
 
