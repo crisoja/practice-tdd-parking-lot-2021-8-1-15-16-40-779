@@ -38,4 +38,8 @@ public abstract class ParkingBoy {
         return parkingLots.get(1).findCarFromParkingLot();
     }
 
+
+    public int getLargestAvailableSpace(ParkingLot parkingLot) {
+        return parkingLot.getCapacity() - parkingLot.getParkedPositionSize();
+    }
 }

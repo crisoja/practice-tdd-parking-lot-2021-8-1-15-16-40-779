@@ -23,8 +23,4 @@ public class SmartStandardParkingBoy extends StandardParkingBoy {
         }
         return parkingLot.park(car);
     }
-
-    public int getLargestAvailableSpace(ParkingLot parkingLot) {
-        return parkingLot.getCapacity() - parkingLot.getParkedPositionSize();
-    }
 }
