@@ -29,7 +29,10 @@ public abstract class ParkingBoy {
     }
 
     public Car getCarFromFirstParkingLot() {
-        return parkingLots.get(0).findCarFromParkingLot();
+        return parkingLots.stream()
+                .findFirst()
+                .map(parkingLot -> parkingLot.findCarFromParkingLot())
+                .orElse(null);
     }
 
     public Car getCarFromSecondParkingLot() {
