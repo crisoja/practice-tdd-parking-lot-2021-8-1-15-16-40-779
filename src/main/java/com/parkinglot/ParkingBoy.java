@@ -31,7 +31,7 @@ public abstract class ParkingBoy {
     public Car getCarFromFirstParkingLot() {
         return parkingLots.stream()
                 .findFirst()
-                .map(parkingLot -> parkingLot.findCarFromParkingLot())
+                .map(ParkingLot::findCarFromParkingLot)
                 .orElse(null);
     }
 
