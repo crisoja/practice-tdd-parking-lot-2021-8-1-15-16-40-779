@@ -42,4 +42,9 @@ public abstract class ParkingBoy {
     public int getLargestAvailableSpace(ParkingLot parkingLot) {
         return parkingLot.getCapacity() - parkingLot.getParkedPositionSize();
     }
+
+    public double getAvailablePositionRate(ParkingLot parkingLot) {
+        return (parkingLot.getCapacity() - parkingLot.getParkedPositionSize()) / parkingLot.getCapacity();
+
+    }
 }

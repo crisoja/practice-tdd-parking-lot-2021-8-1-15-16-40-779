@@ -20,9 +20,4 @@ public class SuperSmartStandardParkingBoy extends StandardParkingBoy {
                 .map(parkingLot -> parkingLot.park(car))
                 .orElse(null);
     }
-
-    public double getAvailablePositionRate(ParkingLot parkingLot) {
-        return (parkingLot.getCapacity() - parkingLot.getParkedPositionSize()) / parkingLot.getCapacity();
-
-    }
 }
