@@ -8,8 +8,8 @@ public class SuperSmartStandardParkingBoy extends StandardParkingBoy {
         super(parkingLot);
     }
 
-    public SuperSmartStandardParkingBoy(List<ParkingLot> parkingLotList) {
-        super(parkingLotList);
+    public SuperSmartStandardParkingBoy(List<ParkingLot> parkingLots) {
+        super(parkingLots);
     }
 
     @Override
