@@ -15,8 +15,8 @@ public class SmartStandardParkingBoy extends StandardParkingBoy {
 
     @Override
     public ParkingTicket park(Car car) {
-        if (parkingLotList != null) {
-            return parkingLotList.stream()
+        if (parkingLots != null) {
+            return parkingLots.stream()
                     .max(Comparator.comparing(parkingLot -> getLargestAvailableSpace(parkingLot)))
                     .map(parkingLot -> parkingLot.park(car))
                     .orElse(null);

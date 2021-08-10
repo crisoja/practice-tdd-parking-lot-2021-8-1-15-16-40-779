@@ -9,14 +9,14 @@ public class StandardParkingBoy extends ParkingBoy {
     }
 
     public StandardParkingBoy(List<ParkingLot> parkingLotList) {
-        this.parkingLotList = parkingLotList;
+        this.parkingLots = parkingLotList;
     }
 
     @Override
     public ParkingTicket park(Car car) {
         this.car = car;
-        if (parkingLotList != null) {
-            return parkingLotList.stream()
+        if (parkingLots != null) {
+            return parkingLots.stream()
                     .filter(parkingLot -> !parkingLot.isParkingLotFull())
                     .findFirst()
                     .map(parkingLot -> parkingLot.park(car))
@@ -26,9 +26,9 @@ public class StandardParkingBoy extends ParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) throws Exception {
-        if (parkingLotList != null) {
+        if (parkingLots != null) {
 
-            return parkingLotList.stream()
+            return parkingLots.stream()
                     .filter(parkingLot -> parkingLot.checkTicket(parkingTicket))
                     .map(parkingLot -> parkingLot.fetch(parkingTicket))
                     .findAny()
@@ -38,11 +38,11 @@ public class StandardParkingBoy extends ParkingBoy {
     }
 
     public Car getCarFromFirstParkingLot(Car car) {
-        return parkingLotList.get(0).findCarFromParkingLot();
+        return parkingLots.get(0).findCarFromParkingLot();
 
     }
 
     public Car getCarFromSecondParkingLot(Car Car) {
-        return parkingLotList.get(1).findCarFromParkingLot();
+        return parkingLots.get(1).findCarFromParkingLot();
     }
 }
