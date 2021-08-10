@@ -74,7 +74,7 @@ public class SuperSmartStandardParkingBoyTest {
         superSmartParkingBoy.park(car);
 
         //then
-        assertEquals(car, superSmartParkingBoy.getCarFromFirstParkingLot(car));
+        assertEquals(car, superSmartParkingBoy.getCarFromFirstParkingLot());
     }
 
     @Test

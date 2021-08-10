@@ -24,7 +24,7 @@ public class SmartStandardParkingBoyTest {
         smartParkingBoy.park(car);
 
         //then
-        assertEquals(car, smartParkingBoy.getCarFromFirstParkingLot(car));
+        assertEquals(car, smartParkingBoy.getCarFromFirstParkingLot());
     }
 
     @Test
@@ -60,7 +60,7 @@ public class SmartStandardParkingBoyTest {
         smartParkingBoy.park(secondCar);
 
         //then
-        assertEquals(secondCar, smartParkingBoy.getCarFromFirstParkingLot(secondCar));
+        assertEquals(secondCar, smartParkingBoy.getCarFromFirstParkingLot());
     }
 
     @Test

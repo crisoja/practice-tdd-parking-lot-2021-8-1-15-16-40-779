@@ -29,7 +29,7 @@ public abstract class ParkingBoy {
         return parkingLot.fetch(parkingTicket);
     }
 
-    public Car getCarFromFirstParkingLot(Car car) {
+    public Car getCarFromFirstParkingLot() {
         return parkingLots.get(0).findCarFromParkingLot();
 
     }
