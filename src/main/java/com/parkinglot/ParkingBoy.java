@@ -7,6 +7,14 @@ public abstract class ParkingBoy {
     List<ParkingLot> parkingLots;
     Car car = new Car();
 
+    public ParkingBoy(ParkingLot parkingLot) {
+        this.parkingLot = parkingLot;
+    }
+
+    public ParkingBoy(List<ParkingLot> parkingLots) {
+        this.parkingLots = parkingLots;
+    }
+
     abstract ParkingTicket park(Car car);
 
 }

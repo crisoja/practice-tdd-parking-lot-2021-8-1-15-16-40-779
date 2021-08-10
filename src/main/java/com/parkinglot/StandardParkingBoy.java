@@ -5,11 +5,11 @@ import java.util.List;
 public class StandardParkingBoy extends ParkingBoy {
 
     public StandardParkingBoy(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
+        super(parkingLot);
     }
 
     public StandardParkingBoy(List<ParkingLot> parkingLotList) {
-        this.parkingLots = parkingLotList;
+        super(parkingLotList);
     }
 
     @Override
