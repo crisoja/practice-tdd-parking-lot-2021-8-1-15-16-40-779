@@ -17,7 +17,6 @@ public abstract class ParkingBoy {
 
     abstract ParkingTicket park(Car car);
 
-
     public Car fetch(ParkingTicket parkingTicket) throws Exception {
         if (parkingLots != null) {
             return parkingLots.stream()
@@ -31,13 +30,11 @@ public abstract class ParkingBoy {
 
     public Car getCarFromFirstParkingLot() {
         return parkingLots.get(0).findCarFromParkingLot();
-
     }
 
     public Car getCarFromSecondParkingLot() {
         return parkingLots.get(1).findCarFromParkingLot();
     }
-
 
     public int getLargestAvailableSpace(ParkingLot parkingLot) {
         return parkingLot.getCapacity() - parkingLot.getParkedPositionSize();
@@ -45,6 +42,5 @@ public abstract class ParkingBoy {
 
     public double getAvailablePositionRate(ParkingLot parkingLot) {
         return (parkingLot.getCapacity() - parkingLot.getParkedPositionSize()) / parkingLot.getCapacity();
-
     }
 }
