@@ -27,7 +27,6 @@ public class StandardParkingBoy extends ParkingBoy {
 
     public Car fetch(ParkingTicket parkingTicket) throws Exception {
         if (parkingLots != null) {
-
             return parkingLots.stream()
                     .filter(parkingLot -> parkingLot.checkTicket(parkingTicket))
                     .map(parkingLot -> parkingLot.fetch(parkingTicket))
