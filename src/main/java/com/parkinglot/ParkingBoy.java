@@ -36,7 +36,11 @@ public abstract class ParkingBoy {
     }
 
     public Car getCarFromOtherParkingLot() {
-        return parkingLots.get(1).findCarFromParkingLot();
+        return parkingLots.stream()
+                .filter(parkingLot -> !getCarFromFirstParkingLot().equals(parkingLot.findCarFromParkingLot()))
+                .map(ParkingLot::getCar)
+                .findAny()
+                .orElse(null);
     }
 
     public int getLargestAvailableSpace(ParkingLot parkingLot) {

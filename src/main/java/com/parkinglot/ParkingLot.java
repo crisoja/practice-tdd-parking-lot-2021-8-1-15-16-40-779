@@ -74,5 +74,9 @@ public class ParkingLot {
         return parkedPositions.containsValue(car);
 
     }
+
+    public Car getCar() {
+        return car;
+    }
 }
 
