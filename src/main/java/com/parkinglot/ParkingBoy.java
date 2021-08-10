@@ -37,7 +37,7 @@ public abstract class ParkingBoy {
 
     public Car getCarFromOtherParkingLot() {
         return parkingLots.stream()
-                .filter(parkingLot -> !getCarFromFirstParkingLot().equals(parkingLot.findCarFromParkingLot()))
+                .filter(parkingLot -> !isCarNotInFirsParkingLot(parkingLot))
                 .map(ParkingLot::getCar)
                 .findAny()
                 .orElse(null);
@@ -49,5 +49,9 @@ public abstract class ParkingBoy {
 
     public double getAvailablePositionRate(ParkingLot parkingLot) {
         return (parkingLot.getCapacity() - parkingLot.getParkedPositionSize()) / parkingLot.getCapacity();
+    }
+
+    public boolean isCarNotInFirsParkingLot(ParkingLot parkingLot){
+        return getCarFromFirstParkingLot().equals(parkingLot.findCarFromParkingLot());
     }
 }
