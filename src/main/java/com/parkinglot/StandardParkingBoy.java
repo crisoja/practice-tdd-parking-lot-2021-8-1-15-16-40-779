@@ -25,12 +25,6 @@ public class StandardParkingBoy extends ParkingBoy {
         return parkingLot.park(car);
     }
 
-
-    public Car getCarFromFirstParkingLot(Car car) {
-        return parkingLots.get(0).findCarFromParkingLot();
-
-    }
-
     public Car getCarFromSecondParkingLot(Car Car) {
         return parkingLots.get(1).findCarFromParkingLot();
     }
